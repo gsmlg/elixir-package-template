@@ -1,18 +1,7 @@
 #!/bin/bash
 
 
-replace '<app_otp_name>' 'opt_name'
-
-replace '<app_otp_name>' 'opt_name' '.releaserc.yaml'
-
-replace 'TemplateModuleName' 'ModuleName'
-
-mv 'lib/template_module_name.ex' 'lib/module_name.ex'
-
-mv 'test/template_module_name_test.exs' 'test/module_name.exs'
-
-
-func replace() {
+replace() {
 
 FROM=${1}
 TO=${2}
@@ -33,9 +22,24 @@ fi
 for FILE in $(ag -l -Q "$FROM" "$DIR");
 do
     echo $FILE;
-    sed -i '' "s%$FROM%$TO%g" $FILE;
+    if [[ "$(uname -s)" == 'Darwin' ]]
+    then
+    	sed -i '' "s%$FROM%$TO%g" $FILE;
+    else 
+    	sed -i "s%$FROM%$TO%g" $FILE;
+    fi
 done
 
 }
 
+
+replace '<app_otp_name>' 'opt_name'
+
+replace '<app_otp_name>' 'opt_name' '.releaserc.yaml'
+
+replace 'TemplateModuleName' 'ModuleName'
+
+mv 'lib/template_module_name.ex' 'lib/module_name.ex'
+
+mv 'test/template_module_name_test.exs' 'test/module_name.exs'
 
