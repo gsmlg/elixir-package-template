@@ -1,7 +1,6 @@
 defmodule TemplateModuleName.Mixfile do
   use Mix.Project
 
-  # Also change package.json version
   @source_url "https://github.com/gsmlg-dev/<app_otp_name>.git"
   @version "0.0.0"
 
@@ -13,7 +12,7 @@ defmodule TemplateModuleName.Mixfile do
       config_path: "config/config.exs",
       deps: deps(),
       name: "TemplateModuleName",
-      description: "Phoenix view functions for working with WebComponent",
+      description: "Description of this package",
       package: package(),
       aliases: aliases(),
       docs: [
@@ -43,7 +42,7 @@ defmodule TemplateModuleName.Mixfile do
     [
       maintainers: ["Jonathan Gao"],
       licenses: ["MIT"],
-      files: ~w(lib priv CHANGELOG.md LICENSE mix.exs package.json README.md),
+      files: ~w(lib priv CHANGELOG.md LICENSE mix.exs README.md),
       links: %{
         Changelog: "https://hexdocs.pm/<app_otp_name>/changelog.html",
         GitHub: @source_url
